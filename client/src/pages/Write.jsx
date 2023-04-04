@@ -17,9 +17,9 @@ const Write = () => {
 
   const upload = async () => {
     try{
-      const formData = new FormData();
-      formData.append("file", file)
-      const res = await axios.post("/upload", formData)
+      const formData = new FormData(); 
+      formData.append("file", file);
+      const res = await axios.post("../../public/uploads", formData);
       return res.data
     } catch (err) {
       console.log(err)
@@ -28,19 +28,19 @@ const Write = () => {
 
   const handleClick = async e => {
     e.preventDefault();
-    const imgUrl = await upload()
+    const imgUrl = await upload();
 
     try {
-      state ? await axios.put(`posts/${state.id}`, {
+      state ? await axios.put(`/posts/${state.id}`, {
         title, 
         desc: value, 
         cat, 
-        img:file ? imgUrl : "",
-      }) : await axios.post(`posts/`, {
+        img:file.name ? imgUrl : "",
+      }) : await axios.post(`/posts/`, {
         title, 
         desc: value, 
         cat, 
-        img:file ? imgUrl : "", 
+        img:file.name ? imgUrl : "", 
         date: moment(Date.now()).format("YYYY-MM-DD HH:mm:ss")
       });
       navigate("/");
@@ -67,7 +67,7 @@ const Write = () => {
           <span>
             <b>Visisiblity: </b> Public
           </span>
-          <input style={{display:"none"}} type="file" id="file" onChange={e=> setFile(e.target.files[0])}/>
+          <input style={{display:"none"}} type="file" id="file" name='' onChange={(e) => setFile(e.target.files[0])}/>
           <label className='file' htmlFor="file">Upload Image</label>
           <div className="buttons">
             <button>Save as a draft</button>

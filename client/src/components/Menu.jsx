@@ -17,33 +17,6 @@ const Menu = ({cat}) => {
     fetchData();
   }, [cat]);
 
-    // const posts = [
-    //     {
-    //       id: 1,
-    //       title: "Lorem ipsum dolor sit",
-    //       desc: "amet consectetur ad",
-    //       img: "https://picsum.photos/1000/600"
-    //     },
-    //     {
-    //       id: 2,
-    //       title: "Lorem ipsum dolor sit",
-    //       desc: "amet consectetur ad",
-    //       img: "https://picsum.photos/1000/600"
-    //     },
-    //     {
-    //       id: 3,
-    //       title: "Lorem ipsum dolor sit",
-    //       desc: "amet consectetur ad",
-    //       img: "https://picsum.photos/1000/600"
-    //     },
-    //     {
-    //       id: 4,
-    //       title: "Lorem ipsum dolor sit",
-    //       desc: "amet consectetur ad",
-    //       img: "https://picsum.photos/1000/600"
-    //     },
-    //   ]
-
   return (
     <div className='menu'>
         <h1>Other posts you may like</h1>
